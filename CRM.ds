@@ -1,0 +1,2477 @@
+/*
+ * Author       : vaibhav.mcu.dc
+ * Generated on : 01-Oct-2019 05:49:07
+ * Version      : 1.0
+ */
+ application "CRM"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+	section Add_Leads
+	{
+		displayname= "Add Leads"
+		icon = "tech-desktop"
+		form Add_Leads
+		{
+			displayname = "Add Leads"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Lead_Status
+			(
+				type = picklist
+				displayname = "Lead Status"
+				values = {"New", "Nurturing", "Choice"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone_Number1
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+    			allowedcountries={in}
+    			defaultcountry="in"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Business_Name
+			(
+    			type = text
+				displayname = "Business Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Official_Number
+			(
+    			type = phonenumber
+				displayname = "Official Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Website
+			(
+    			type = url
+				enable  linkname
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Office_Address
+			(
+    			type = address
+				displayname = "Office Address"
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_11
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_21
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city1
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province1
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code1
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country1
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude1
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude1
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Product
+			(
+    			type = text
+				displayname = "Product ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Lead_Type
+			(
+				type = picklist
+				displayname = "Lead Type"
+				values = {"Hot", "Cold", "Warm"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		spreadsheet Add_Leads_Report
+		{
+			displayName = "Add Leads Report"
+			show all rows from Add_Leads    
+			(
+				Lead_Status as "Lead Status"
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Phone_Number1 as "Phone Number"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Business_Name as "Business Name"
+				Official_Number as "Official Number"
+				Email
+				Website
+				Office_Address  as "Office Address"
+	 			(
+	      			displayformat = [address_line_11+""+address_line_21+""+district_city1+""+state_province1+""+postal_Code1+""+country1]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Lead_Type as "Lead Type"
+				custom action "Convert"
+				(
+	  			workflow = Convert
+				show action in edit record menu = true
+				column header = "Convert"
+				)
+				Product as "Product ID"
+			)
+			options
+			(
+				icon = "design-bullet-list-67"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -4
+					datablock1
+					(
+			 			layout type = -4
+		     			title = "Overview"
+						fields
+						(
+							Lead_Status as "Lead Status"
+							Name
+							Phone_Number1 as "Phone Number"
+							Address
+							Business_Name as "Business Name"
+							Official_Number as "Official Number"
+							Email
+				"Convert"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+								"Convert"
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Lead_Status as "Lead Status"
+							Name
+							Phone_Number1 as "Phone Number"
+							Address
+							Business_Name as "Business Name"
+							Official_Number as "Official Number"
+							Email
+							Website
+							Office_Address as "Office Address"
+							Lead_Type as "Lead Type"
+							Product as "Product ID"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Add_New_Sales_rep
+	{
+		displayname= "Add New Sales rep"
+		icon = "tech-desktop"
+		form Add_New_Sales_rep
+		{
+			displayname = "Add New Sales rep"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Lead_Own
+			(
+    			type = name
+				displayname = "Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Add_New_Sales_rep_Report
+		{
+			displayName = "Add New Sales rep Report"
+			show all rows from Add_New_Sales_rep    
+			(
+				Lead_Own  as "Name"
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Email
+			)
+			options
+			(
+				icon = "design-bullet-list-67"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Lead_Own as "Name"
+							Email
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Lead_Own as "Name"
+							Email
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section New_Contacts
+	{
+		displayname= "New Contacts"
+		icon = "tech-desktop"
+		form Add_New_Contact
+		{
+			displayname = "Add New Contact"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Contact_Owner
+			(
+				type = picklist
+				displayname = "Contact Owner"
+				values  = Add_New_Sales_rep.ID
+    			displayformat = [" " + Lead_Own.prefix + " " + Lead_Own.first_name + " " + Lead_Own.last_name + " " + Lead_Own.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Phone_Number1
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Account_Name
+			(
+				type = picklist
+				displayname = "Account Name"
+				values  = Add_New_Account.ID
+    			displayformat = [Account_Name]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Add_New_Contact_Report
+		{
+			displayName = "Add New Contact Report"
+			show all rows from Add_New_Contact    
+			(
+				Contact_Owner as "Contact Owner"
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Email
+				Phone_Number1 as "Phone Number"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Account_Name as "Account Name"
+			)
+			options
+			(
+				icon = "design-bullet-list-67"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Contact_Owner as "Contact Owner"
+							Name
+							Email
+							Phone_Number1 as "Phone Number"
+							Address
+							Account_Name as "Account Name"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Contact_Owner as "Contact Owner"
+							Name
+							Email
+							Phone_Number1 as "Phone Number"
+							Address
+							Account_Name as "Account Name"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Add_New_Account
+	{
+		displayname= "Add New Account"
+		icon = "tech-desktop"
+		form Add_New_Account
+		{
+			displayname = "Add New Account"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Account_Owner
+			(
+				type = picklist
+				displayname = "Account Owner"
+				values  = Add_New_Sales_rep.ID
+    			displayformat = [" " + Lead_Own.prefix + " " + Lead_Own.first_name + " " + Lead_Own.last_name + " " + Lead_Own.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Account_Name
+			(
+    			type = text
+				displayname = "Account Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Account_Email
+			(
+    			type = email
+				displayname = "Account Email"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Website
+			(
+    			type = url
+				enable  linkname
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Phone_Number1
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_1
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_2
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province
+     			(
+	     			  type = state_province
+	     			  displayname = "State / Province"
+     			) 
+     			postal_Code
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+	     			 visibility = false
+     			) 
+     			longitude
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Contact_Name
+			(
+				type = picklist
+				displayname = "Contact Name"
+				values  = Add_New_Contact.ID
+    			displayformat = [" " + Name.prefix + " " + Name.first_name + " " + Name.last_name + " " + Name.suffix]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Add_New_Account_Report
+		{
+			displayName = "Add New Account Report"
+			show all rows from Add_New_Account    
+			(
+				Account_Owner as "Account Owner"
+				Account_Name as "Account Name"
+				Account_Email as "Account Email"
+				Website
+				Phone_Number1 as "Phone Number"
+				Address 
+	 			(
+	      			displayformat = [address_line_1+""+address_line_2+""+district_city+""+state_province+""+postal_Code+""+country]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Contact_Name as "Contact Name"
+			)
+			options
+			(
+				icon = "design-bullet-list-67"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Account_Owner as "Account Owner"
+							Account_Name as "Account Name"
+							Account_Email as "Account Email"
+							Website
+							Phone_Number1 as "Phone Number"
+							Address
+							Contact_Name as "Contact Name"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Account_Owner as "Account Owner"
+							Account_Name as "Account Name"
+							Account_Email as "Account Email"
+							Website
+							Phone_Number1 as "Phone Number"
+							Address
+							Contact_Name as "Contact Name"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Add_New_Event
+	{
+		displayname= "Add New Event"
+		icon = "tech-desktop"
+		form Add_New_Event
+		{
+			displayname = "Add New Event"
+			success message = "Data Added Successfully!"
+			field alignment = left
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Subject_field
+			(
+    			type = text
+				displayname = "Subject"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Description
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Status
+			(
+				type = radiobuttons
+				values = {"Scheduled", "Completed", "Cancelled"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			From
+			(
+    			type = datetime
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			To
+			(
+    			type = datetime
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Location
+			(
+    			type = date
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Target_Audience
+			(
+				type = radiobuttons
+				displayname = "Target Audience"
+				values = {"Leads", "Accounts", "Contacts"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			customize
+			(
+				icon = "ui-1-bold-add"
+			)
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Add_New_Event_Report
+		{
+			displayName = "Add New Event Report"
+			show all rows from Add_New_Event    
+			(
+				Subject_field as "Subject"
+				Description
+				Status
+				Location
+				From
+				To
+				Target_Audience as "Target Audience"
+				custom action "Email"
+				(
+	  			workflow = Email
+				show action in edit record menu = true
+				column header = "Email"
+				condition = (Status == "Scheduled")
+				)
+			)
+			options
+			(
+				icon = "design-bullet-list-67"
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Subject_field as "Subject"
+							Description
+							Status
+							From
+							To
+							Location
+							Target_Audience as "Target Audience"
+				"Email" as "Campaigns"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Delete   	   
+								"Email"
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Subject_field as "Subject"
+							Description
+							Status
+							Location
+							From
+							To
+							Target_Audience as "Target Audience"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Cutomer_Complaint
+	{
+		displayname= "Cutomer Complaint"
+		form Submit_New_Complaint
+		{
+			displayname = "Submit New Complaint"
+			success message = "Your complaint has been submitted successfully.!"
+			field alignment = left
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Contact_Information
+			(
+    			type = plaintext
+				value = "<font size=\"4\" color=\"#3394D8\"><b>Contact Information</b></font>"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Full_Name
+			(
+    			type = name
+				displayname = "Full Name"
+     			prefix1
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name1
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name1
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix1
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Address
+			(
+    			type = address
+     			capture_coordinates = true
+     			adjust_using_map = false
+     			address_line_11
+     			(
+	     			  type = address_line_1
+	     			  displayname = "Address Line 1"
+     			) 
+     			address_line_21
+     			(
+	     			  type = address_line_2
+	     			  displayname = "Address Line 2"
+     			) 
+     			district_city1
+     			(
+	     			  type = district_city
+	     			  displayname = "City / District"
+     			) 
+     			state_province1
+     			(
+	     			  type = state_province
+	     			  displayname = "State Province"
+     			) 
+     			postal_Code1
+     			(
+	     			  type = postal_Code
+	     			  displayname = "Postal Code"
+     			) 
+     			country1
+     			(
+	     			  type = country
+	     			  displayname = "Country"
+     			) 
+     			latitude1
+     			(
+	     			  type = latitude
+	     			  displayname = "latitude"
+     			) 
+     			longitude1
+     			(
+	     			  type = longitude
+	     			  displayname = "longitude"
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			We_re_sorry_Let_us_know_how_we_can_improve
+			(
+    			type = plaintext
+				value = "<font size=\"4\" color=\"#3394D8\"><b>We&#39;re sorry. Let us know how we can improve.</b></font>"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Product_or_Type_of_Service
+			(
+				type = picklist
+				displayname = "Product or Service"
+				values = {"Product A or Service A", "Product B or Service B", "Product C or Service C"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Please_describe_your_complaint_in_details
+			(
+    			type = textarea
+				displayname = "Please describe your complaint in details"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Image_If_applicable
+			(
+    			type = image
+				displayname = "Image (If applicable)"
+				source  = public_url,file
+				camera = primary
+				show gallery = true
+				switch camera = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have How_can_we_fix_this_problem
+			(
+    			type = textarea
+				displayname = "How can we fix this problem?"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list All_Complaints
+		{
+			displayName = "All Complaints"
+			show all rows from Submit_New_Complaint    
+			(
+				Full_Name  as "Full Name"
+	 			(
+	      			displayformat = [first_name1+""+prefix1+""+last_name1+""+suffix1]
+	 			)
+				Address 
+	 			(
+	      			displayformat = [address_line_11+""+address_line_21+""+district_city1+""+state_province1+""+postal_Code1+""+country1]
+	      			enable = Link_to_Map,Show_As_Text
+	 			)
+				Image_If_applicable as "Image (If applicable)"
+				Please_describe_your_complaint_in_details as "Please describe your complaint in details"
+				Product_or_Type_of_Service as "Product or Service"
+				Phone_Number as "Phone Number"
+				Email
+				How_can_we_fix_this_problem as "How can we fix this problem?"
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = 6
+					datablock1
+					(
+			 			layout type = 19
+		     			title = "Overview"
+						fields
+						(
+							Image_If_applicable as "Image (If applicable)"
+							Product_or_Type_of_Service as "Product or Service"
+							Please_describe_your_complaint_in_details as "Please describe your complaint in details"
+							Email
+							Phone_Number as "Phone Number"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 2
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Complainant Information"
+						fields
+						(
+							Full_Name as "Full Name"
+							Email
+							Phone_Number as "Phone Number"
+							Address
+						)
+					)
+					datablock2
+					(
+			 			layout type = -2
+		     			title = "Complaint Details"
+						fields
+						(
+							Product_or_Type_of_Service as "Product or Service"
+							Please_describe_your_complaint_in_details as "Please describe your complaint in details"
+							Image_If_applicable as "Image (If applicable)"
+							How_can_we_fix_this_problem as "How can we fix this problem?"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+	section Software_Evaluation
+	{
+		displayname= "Software Evaluation"
+		form Software_Evaluation
+		{
+			displayname = "Evaluate Software"
+			success message = "Thanks for evaluating our software.!"
+			field alignment = top
+			feature property = 32
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Software_Title
+			(
+    			type = text
+				displayname = "Feed Back"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Rate_this_software
+			(
+				type = radiobuttons
+				displayname = "Rate this software"
+				values = {"Excellent", "Above Average", "Average", "Below Average", "Poor"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Evaluators_Name
+			(
+    			type = name
+				displayname = "Evaluator's Name"
+     			prefix1
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name1
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name1
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix1
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Email
+			(
+    			type = email
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone Number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			must have How_long_have_you_been_using_this_software
+			(
+				type = radiobuttons
+				displayname = "How long have you been using this software?"
+				values = {"Less than a year", "More than a year"}
+				layout = 2
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Objectives
+			(
+				type = section
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Does_the_software_support_your_needs_and_objectives
+			(
+				type = radiobuttons
+				displayname = "Does the software support your needs and objectives?"
+				values = {"Yes", "No"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Does_the_software_fill_a_need_not_addressed_by_software_you_currently_use
+			(
+				type = radiobuttons
+				displayname = "Does the software fill a need not addressed by software you currently use?"
+				values = {"Yes", "No"}
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			Target_Audience
+			(
+				type = section
+				displayname = "Target Audience"
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Does_the_software_matches_the_learner_audience_in_age_reading_and_skill_level
+			(
+				type = radiobuttons
+				displayname = "Does the software matches the learner audience in age, reading, and skill level?"
+				values = {"Yes", "No"}
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			must have Does_the_rate_of_display_of_information_is_appropriate_to_the_learner_audience
+			(
+				type = radiobuttons
+				displayname = "Does the rate of display of information is appropriate to the learner audience?"
+				values = {"Yes", "No"}
+	 			row = 3
+	 			column = 1   
+				width = medium
+			)
+			Usability
+			(
+				type = section
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Is_the_software_cost_efficient
+			(
+				type = radiobuttons
+				displayname = "Is the software cost efficient?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Do_you_already_have_the_necessary_hardware
+			(
+				type = radiobuttons
+				displayname = "Do you already have the necessary hardware?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Can_additional_hardware_can_be_obtained_easily_that_meets_the_software_s_requirements
+			(
+				type = radiobuttons
+				displayname = "Can additional hardware can be obtained easily that meets the software's  requirements?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Is_the_software_easy_to_use
+			(
+				type = radiobuttons
+				displayname = "Is the software easy to use?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Are_the_directions_easily_understood
+			(
+				type = radiobuttons
+				displayname = "Are the directions easily understood?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Can_users_navigate_through_the_software_easily
+			(
+				type = radiobuttons
+				displayname = "Can users navigate through the software easily?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Is_the_software_well_supported
+			(
+				type = radiobuttons
+				displayname = "Is the software well supported?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Is_there_is_a_print_or_online_manual
+			(
+				type = radiobuttons
+				displayname = "Is there is a print or online manual?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Does_the_software_include_all_necessary_guides_or_workbooks
+			(
+				type = radiobuttons
+				displayname = "Does the software include all necessary guides or workbooks?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			must have Is_technical_support_provided_online_or_over_the_phone
+			(
+				type = radiobuttons
+				displayname = "Is technical support provided online or over the phone?"
+				values = {"Yes", "No"}
+	 			row = 4
+	 			column = 1   
+				width = medium
+			)
+			Other
+			(
+				type = section
+	 			row = 2
+	 			column = 1   
+				width = medium
+			)
+			must have Would_you_be_willing_to_try_out_an_alternative_to_this_software
+			(
+				type = radiobuttons
+				displayname = "Would you be willing to try out an alternative to this software?"
+				values = {"Yes", "No"}
+				layout = 2
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+			Comments
+			(
+    			type = textarea
+				height = 100px
+	 			row = 5
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		list Software_Evaluation_Report
+		{
+			displayName = "Software Evaluation Details"
+			show all rows from Software_Evaluation    
+			(
+				Evaluators_Name  as "Evaluator's Name"
+	 			(
+	      			displayformat = [first_name1+""+prefix1+""+last_name1+""+suffix1]
+	 			)
+				Does_the_software_fill_a_need_not_addressed_by_software_you_currently_use as "Does the software fill a need not addressed by software you currently use?"
+				Does_the_software_matches_the_learner_audience_in_age_reading_and_skill_level as "Does the software matches the learner audience in age, reading, and skill level?"
+				Does_the_rate_of_display_of_information_is_appropriate_to_the_learner_audience as "Does the rate of display of information is appropriate to the learner audience?"
+				Is_the_software_cost_efficient as "Is the software cost efficient?"
+				Do_you_already_have_the_necessary_hardware as "Do you already have the necessary hardware?"
+				Can_additional_hardware_can_be_obtained_easily_that_meets_the_software_s_requirements as "Can additional hardware can be obtained easily that meets the software's  requirements?"
+				Is_the_software_easy_to_use as "Is the software easy to use?"
+				Are_the_directions_easily_understood as "Are the directions easily understood?"
+				Can_users_navigate_through_the_software_easily as "Can users navigate through the software easily?"
+				Is_the_software_well_supported as "Is the software well supported?"
+				Is_there_is_a_print_or_online_manual as "Is there is a print or online manual?"
+				Does_the_software_include_all_necessary_guides_or_workbooks as "Does the software include all necessary guides or workbooks?"
+				Is_technical_support_provided_online_or_over_the_phone as "Is technical support provided online or over the phone?"
+				Rate_this_software as "Rating"
+				Would_you_be_willing_to_try_out_an_alternative_to_this_software as "Would you be willing to try out an alternative to this software?"
+				Software_Title as "Feed Back"
+				Does_the_software_support_your_needs_and_objectives as "Does the software support your needs and objectives?"
+				How_long_have_you_been_using_this_software as "How long have you been using this software?"
+				Phone_Number as "Phone Number"
+				Email
+				Comments
+			)
+			quickview
+			(
+				layout
+				(
+		 			type = -1
+					datablock1
+					(
+			 			layout type = -1
+		     			title = "Overview"
+						fields
+						(
+							Software_Title as "Feed Back"
+							Evaluators_Name as "Evaluator's Name"
+							Comments
+							Email
+							Phone_Number as "Phone Number"
+							How_long_have_you_been_using_this_software as "How long have you been using this software?"
+							Does_the_software_support_your_needs_and_objectives as "Does the software support your needs and objectives?"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Software_Title as "Feed Back"
+							Evaluators_Name as "Evaluator's Name"
+							Email
+							Phone_Number as "Phone Number"
+							How_long_have_you_been_using_this_software as "How long have you been using this software?"
+							Does_the_software_support_your_needs_and_objectives as "Does the software support your needs and objectives?"
+							Does_the_software_fill_a_need_not_addressed_by_software_you_currently_use as "Does the software fill a need not addressed by software you currently use?"
+							Does_the_software_matches_the_learner_audience_in_age_reading_and_skill_level as "Does the software matches the learner audience in age, reading, and skill level?"
+							Does_the_rate_of_display_of_information_is_appropriate_to_the_learner_audience as "Does the rate of display of information is appropriate to the learner audience?"
+							Is_the_software_cost_efficient as "Is the software cost efficient?"
+							Do_you_already_have_the_necessary_hardware as "Do you already have the necessary hardware?"
+							Can_additional_hardware_can_be_obtained_easily_that_meets_the_software_s_requirements as "Can additional hardware can be obtained easily that meets the software's  requirements?"
+							Is_the_software_easy_to_use as "Is the software easy to use?"
+							Are_the_directions_easily_understood as "Are the directions easily understood?"
+							Can_users_navigate_through_the_software_easily as "Can users navigate through the software easily?"
+							Is_the_software_well_supported as "Is the software well supported?"
+							Is_there_is_a_print_or_online_manual as "Is there is a print or online manual?"
+							Does_the_software_include_all_necessary_guides_or_workbooks as "Does the software include all necessary guides or workbooks?"
+							Is_technical_support_provided_online_or_over_the_phone as "Is technical support provided online or over the phone?"
+							Rate_this_software as "Rating"
+							Would_you_be_willing_to_try_out_an_alternative_to_this_software as "Would you be willing to try out an alternative to this software?"
+							Comments
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+		kanban Software_Evaluation_Details
+		{
+			displayName = "Software Evaluation Details"
+			show all rows from Software_Evaluation    
+			(
+				Evaluators_Name  as "Evaluator's Name"
+	 			(
+	      			displayformat = [first_name1+""+prefix1+""+last_name1+""+suffix1]
+	 			)
+				Does_the_software_fill_a_need_not_addressed_by_software_you_currently_use as "Does the software fill a need not addressed by software you currently use?"
+				Does_the_software_matches_the_learner_audience_in_age_reading_and_skill_level as "Does the software matches the learner audience in age, reading, and skill level?"
+				Does_the_rate_of_display_of_information_is_appropriate_to_the_learner_audience as "Does the rate of display of information is appropriate to the learner audience?"
+				Is_the_software_cost_efficient as "Is the software cost efficient?"
+				Do_you_already_have_the_necessary_hardware as "Do you already have the necessary hardware?"
+				Can_additional_hardware_can_be_obtained_easily_that_meets_the_software_s_requirements as "Can additional hardware can be obtained easily that meets the software's  requirements?"
+				Is_the_software_easy_to_use as "Is the software easy to use?"
+				Are_the_directions_easily_understood as "Are the directions easily understood?"
+				Can_users_navigate_through_the_software_easily as "Can users navigate through the software easily?"
+				Is_the_software_well_supported as "Is the software well supported?"
+				Is_there_is_a_print_or_online_manual as "Is there is a print or online manual?"
+				Does_the_software_include_all_necessary_guides_or_workbooks as "Does the software include all necessary guides or workbooks?"
+				Is_technical_support_provided_online_or_over_the_phone as "Is technical support provided online or over the phone?"
+				Software_Title as "Feed Back"
+				How_long_have_you_been_using_this_software as "How long have you been using this software?"
+				Phone_Number as "Phone Number"
+				Email
+				Rate_this_software as "Rate this software"
+				Does_the_software_support_your_needs_and_objectives as "Does the software support your needs and objectives?"
+				Would_you_be_willing_to_try_out_an_alternative_to_this_software as "Would you be willing to try out an alternative to this software?"
+				Comments
+			)
+			options
+			(
+	 			display field = Rate_this_software
+	 		)
+			quickview
+			(
+				layout
+				(
+		 			type = 1
+					datablock1
+					(
+			 			layout type = 1
+		     			title = "Overview"
+						fields
+						(
+							Software_Title as "Feed Back"
+							Evaluators_Name as "Evaluator's Name"
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Delete 
+    		 			Add 
+    		 			Print 
+    		 			Import 
+    		 			Export 
+    	 			)
+							record
+							(
+								Edit   	   
+								Duplicate   	   
+								Print   	   
+								Delete   	   
+    						)
+    			)
+    			action
+    			(
+							on click
+							(
+								View Record   	   
+    						)
+							on right click
+							(
+								Edit   	   
+								Delete   	   
+								Duplicate   	   
+								Print   	   
+								View Record   	   
+    						)
+     			)
+			)
+			detailview
+			(
+				layout
+				(
+		 			type = 2
+					datablock1
+					(
+			 			layout type = -2
+		     			title = "Overview"
+						fields
+						(
+							Software_Title as "Feed Back"
+							Rate_this_software as "Rate this software"
+							Evaluators_Name as "Evaluator's Name"
+							Email
+							Phone_Number as "Phone Number"
+							How_long_have_you_been_using_this_software as "How long have you been using this software?"
+						)
+					)
+					datablock2
+					(
+			 			layout type = -2
+		     			title = "Objectives"
+						fields
+						(
+							Does_the_software_support_your_needs_and_objectives as "Does the software support your needs and objectives?"
+							Does_the_software_fill_a_need_not_addressed_by_software_you_currently_use as "Does the software fill a need not addressed by software you currently use?"
+						)
+					)
+					datablock3
+					(
+			 			layout type = -2
+		     			title = "Target Audience"
+						fields
+						(
+							Does_the_software_matches_the_learner_audience_in_age_reading_and_skill_level as "Does the software matches the learner audience in age, reading, and skill level?"
+							Does_the_rate_of_display_of_information_is_appropriate_to_the_learner_audience as "Does the rate of display of information is appropriate to the learner audience?"
+						)
+					)
+					datablock4
+					(
+			 			layout type = -2
+		     			title = "Usability"
+						fields
+						(
+							Is_the_software_cost_efficient as "Is the software cost efficient?"
+							Do_you_already_have_the_necessary_hardware as "Do you already have the necessary hardware?"
+							Can_additional_hardware_can_be_obtained_easily_that_meets_the_software_s_requirements as "Can additional hardware can be obtained easily that meets the software's  requirements?"
+							Is_the_software_easy_to_use as "Is the software easy to use?"
+							Are_the_directions_easily_understood as "Are the directions easily understood?"
+							Can_users_navigate_through_the_software_easily as "Can users navigate through the software easily?"
+							Is_the_software_well_supported as "Is the software well supported?"
+							Is_there_is_a_print_or_online_manual as "Is there is a print or online manual?"
+							Does_the_software_include_all_necessary_guides_or_workbooks as "Does the software include all necessary guides or workbooks?"
+							Is_technical_support_provided_online_or_over_the_phone as "Is technical support provided online or over the phone?"
+						)
+					)
+					datablock5
+					(
+			 			layout type = -2
+		     			title = "Other"
+						fields
+						(
+							Would_you_be_willing_to_try_out_an_alternative_to_this_software as "Would you be willing to try out an alternative to this software?"
+							Comments
+						)
+					)
+				)
+
+				menu
+    			(
+    	 			header
+    	 			(
+    		 			Edit 
+    		 			Duplicate 
+    		 			Print 
+    		 			Delete 
+    	 			)
+    			)
+			)
+		}
+	}
+
+
+
+	workflow
+	{
+		form
+		{
+			Assign_Account_Owner as "Assign Account Owner"
+			{
+    			type =  form
+				form = Add_New_Account
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Account_Owner = Add_New_Sales_rep[Email == zoho.loginuserid].ID;
+										disable Account_Owner;
+						)	
+					}
+				}
+			}
+			Assign_Contact_Owner as "Assign Contact Owner"
+			{
+    			type =  form
+				form = Add_New_Contact
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Contact_Owner = Add_New_Sales_rep[Email == zoho.loginuserid].ID;
+										disable Contact_Owner;
+						)	
+					}
+				}
+			}
+			Assign_initial_Status as "Assign initial Status"
+			{
+    			type =  form
+				form = Add_New_Event
+				on add
+				{
+					actions 
+					{
+						on success
+						(
+							input.Status = "Scheduled";
+						)	
+					}
+				}
+			}
+			Assign_Lead_Owner as "Assign Lead Owner"
+			{
+    			type =  form
+				form = Add_Leads
+				on add
+				{
+					actions 
+					{
+						on load
+						(
+							input.Lead_Status = Add_New_Sales_rep[Email == zoho.loginuserid].ID;
+										disable Lead_Status;
+						)	
+					}
+				}
+			}
+		}
+		functions
+		{
+			Convert as "Convert"
+			{
+    			type =  functions
+				form = Add_Leads
+				on start
+				{
+					actions 
+					{
+						on click
+						(
+							acc = insert into Add_New_Account
+										[
+											Added_User=zoho.loginuser
+											Account_Name=input.Business_Name
+											Website=input.Website
+											Phone_Number1=input.Official_Number
+											Address=input.Address
+											Account_Email=input.Email
+										];
+										cont = insert into Add_New_Contact
+										[
+											Added_User=zoho.loginuser
+											Name=input.Name
+											Email=input.Email
+											Phone_Number1=input.Phone_Number1
+											Address=input.Address
+										];
+						)	
+					}
+				}
+			}
+			Email as "Email"
+			{
+    			type =  functions
+				form = Add_New_Event
+				on start
+				{
+					actions 
+					{
+						on click
+						(
+							evtrec = Add_New_Event[Target_Audience != Null];
+										if(input.Target_Audience == "Leads")
+										{
+											evtrec.Status="Completed";
+											for each  ldrec in Add_Leads
+											{
+												sendmail
+												[
+													from :zoho.loginuserid
+													to :ldrec.Email
+													subject :evtrec.Subject_field
+													message :evtrec.Description + "From" + evtrec.From + "To" + evtrec.To
+												]
+											}
+										}
+										else if(input.Target_Audience == "Accounts")
+										{
+											evtrec.Status="Completed";
+											for each  accrec in Add_New_Account
+											{
+												sendmail
+												[
+													from :zoho.loginuserid
+													to :accrec.Account_Email
+													subject :evtrec.Subject_field
+													message :evtrec.Description + "From" + evtrec.From + "To" + evtrec.To
+												]
+											}
+										}
+										else if(input.Target_Audience == "Contacts")
+										{
+											evtrec.Status="Completed";
+											for each  conrec in Add_New_Contact
+											{
+												sendmail
+												[
+													from :zoho.loginuserid
+													to :conrec.Email
+													subject :evtrec.Subject_field
+													message :evtrec.Description + "From" + evtrec.From + "To" + evtrec.To
+												]
+											}
+										}
+						)	
+					}
+				}
+			}
+		}
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users.\n"
+				}
+			}
+	}
+
+	customize
+	{
+		
+		layout = "tab"
+		color = "black"
+		base theme = "professional"
+		new theme = 3
+		new theme color = 1
+		icons = true
+    	icon type = 1
+    	icon name = "zc-ab-project-mgmt8"
+    	icon theme = "darkgrey"
+		icons style = outline
+	}
+
+	
+}
